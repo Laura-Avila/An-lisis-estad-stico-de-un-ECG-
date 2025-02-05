@@ -54,6 +54,8 @@ for i, canal in enumerate(senal.T):  # Iterar por canal
     desviacion_manual = calcular_desviacion(canal, media_manual)
     coef_variacion_manual = calcular_coef_variacion(media_manual, desviacion_manual)
 ```
+![image](https://github.com/user-attachments/assets/e4acbcaa-d748-469e-a2ca-aabfbfcc66d2)
+
 Histograma:
 La línea primera establece el tamaño de la figura del gráfico a 10 pulgadas de ancho por 6 pulgadas de alto. 
 ```
