@@ -1,6 +1,8 @@
 # Analisis estadistico de un ECG
 # Descripción
-Señal ECG
+Este proyecto implementa el procesamiento y análisis estadístico de señales de ECG, abarcando la caracterización de parámetros estadísticos, la simulación de ruido en distintas configuraciones y la evaluación de la variabilidad de la señal en función de métricas cuantitativas.
+
+# Señal ECG
 La señal utilizada fue extraída de Physionet de la base de datos Apnea-ECG Database, esta base de datos consiste en 70 grabaciones de larga duración (entre 7 y 10 horas) para investigar la apnea del sueño a través de señales de ECG. Cada grabación incluye una señal de ECG de 100 muestras por segundo. 
 Se utilizó en a04.hea y el a04.dat, el .hea es un archivo de texto que describe el contenido de .dat, este tiene información como el número de señales, la frecuencia de muestreo, el formato de los datos y la escala de conversión de los valores digitales a unidades fisiológicas.
 
