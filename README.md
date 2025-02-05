@@ -66,6 +66,9 @@ A continuación, se genera un histograma de 60 barras con la señal ECG de 10 se
 sns.histplot(senal_10s, bins=60, color='blue', edgecolor='black', alpha=0.7, kde=True)
 ```
 ![image](https://github.com/user-attachments/assets/ad9f24f1-fbf0-4e82-a83a-54ee11552f9a)
+## Estadisticos descriptivos (Funciones)
+Este código calcula tres estadísticas clave de la señal ECG por canal. La media se obtiene para cada canal, proporcionando el valor promedio de la señal. La desviación estándar mide la dispersión de los datos respecto a la media, utilizando un denominador de n-1 para asegurar una estimación insesgada. Finalmente, el coeficiente de variación se calcula como el cociente entre la desviación estándar y la media, expresado como un porcentaje. Este coeficiente proporciona una medida de la variabilidad relativa de la señal en relación con su media, permitiendo comparar la dispersión entre señales de diferentes magnitudes.
+
 # SNR para los distintos tipos de ruidos
 El SNR (Signal to noise ratio) o sea relación señal ruido es un parámetro que se utiliza para saber que tan contaminada está una señal, esto se hace comparando la amplitud de la señal, con la amplitud del ruido usando la siguiente fórmula: $SNR = 10 \log_{10} \left(\frac{P_{\text{señal}}}{P_{\text{ruido}}}\right)$
 
