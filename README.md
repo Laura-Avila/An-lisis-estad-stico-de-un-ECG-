@@ -36,6 +36,9 @@ muestras_10s = int(frecuencia * duracion_segundos)  #Número de muestras en 10 s
 senal_10s = senal[:muestras_10s, :]  # Cortar señal
 tiempo_10s = tiempo[:muestras_10s]  # Cortar tiempo
 ```
+>[!TIP]
+>Es preferible mostrar solo los primeros 10 segundos de la señal ECG para que la visualización sea más clara y fácil de analizar.
+
 La señal obtenida representa es un registro de la actividad eléctrica del corazón a lo largo 10 segundos, siendo esta la de una persona con apnea del sueño, con una frecuencia de muestreo de  100Hz.
 
 ![image](https://github.com/user-attachments/assets/9565a6eb-8467-40c1-b40c-befab731b9b3)
@@ -51,7 +54,8 @@ def calcular_media(datos):
        sumita+= i
     return sumita/ len(datos)
 ```
-Desviación Estándar: Se calcula la dispersión de los datos respecto a la media, obteniendo la varianza y extrayendo su raíz cuadrada.                                                                       ![image](https://github.com/user-attachments/assets/6aabccd0-6329-4b82-9047-4379703cc730)
+Desviación Estándar: Se calcula la dispersión de los datos respecto a la media, obteniendo la varianza y extrayendo su raíz cuadrada.                                                          
+                  ![image](https://github.com/user-attachments/assets/6aabccd0-6329-4b82-9047-4379703cc730)
 ```
 def calcular_desviacion(datos, media):
     suma_v=0
@@ -60,7 +64,8 @@ def calcular_desviacion(datos, media):
     varianza=suma_v/len(datos)
     return varianza ** 0.5
 ```
-Coeficiente de Variación:  Se obtiene dividiendo la desviación estándar entre la media y expresando el resultado en porcentaje.                                                                            ![image](https://github.com/user-attachments/assets/d2f307d1-c7e0-401b-acdd-bb55fd6a1b8a)
+Coeficiente de Variación:  Se obtiene dividiendo la desviación estándar entre la media y expresando el resultado en porcentaje.                                                                                                     
+               ![image](https://github.com/user-attachments/assets/d2f307d1-c7e0-401b-acdd-bb55fd6a1b8a)
 ```
 def calcular_coef_variacion(media, desviacion):
     return (desviacion / media) * 100
