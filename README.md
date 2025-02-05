@@ -26,47 +26,43 @@ Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., .
 ## Estadisticos descriptivos (Forma larga)
 Se han implementado cálculos manuales para la media, desviación estándar y coeficiente de variación para verificar el comportamiento de la señal sin depender de bibliotecas especializadas. La media aritmética se obtiene sumando todos los valores y dividiendo entre el número total de muestras, proporcionando una medida central. La desviación estándar mide la dispersión de los datos respecto a la media, y el coeficiente de variación, expresado en porcentaje, facilita la comparación de la dispersión relativa entre diferentes canales de ECG. Estos cálculos validan la coherencia de los resultados obtenidos mediante herramientas estadísticas automatizadas.
 Media: Se recorre la señal, sumando todos los valores y dividiendo por el número total de muestras.                                       
-
+```
 def calcular_media(datos):
     sumita=0
     for i in datos:
        sumita+= i
     return sumita/ len(datos)
-
+```
 Desviación Estándar: Se calcula la dispersión de los datos respecto a la media, obteniendo la varianza y extrayendo su raíz cuadrada.                                                                       ![image](https://github.com/user-attachments/assets/6aabccd0-6329-4b82-9047-4379703cc730)
-  
+```
 def calcular_desviacion(datos, media):
     suma_v=0
     for i in datos:
         suma_v+=(i-media)**2
     varianza=suma_v/len(datos)
     return varianza ** 0.5
-
+```
 Coeficiente de Variación:  Se obtiene dividiendo la desviación estándar entre la media y expresando el resultado en porcentaje.                                                                            ![image](https://github.com/user-attachments/assets/d2f307d1-c7e0-401b-acdd-bb55fd6a1b8a)
-
-
+```
 def calcular_coef_variacion(media, desviacion):
     return (desviacion / media) * 100
-
+```
 Este fragmento de código recorre cada canal de la señal ECG. senal.T es la transposición de la matriz senal, que tiene un tamaño de (n_muestras, n_canales), donde cada columna representa un canal ECG. Al hacer .T (transpuesta), obtenemos una estructura de (n_canales, n_muestras), lo que facilita iterar sobre cada canal. enumerate(senal.T) nos proporciona tanto el índice i como el canal, que es una lista de valores de amplitud para ese canal específico. Despues se llaman las funciones previamente definas para realizar los cálculos correspondientes en cada iteración sobre la señal.
-
-
+```
 for i, canal in enumerate(senal.T):  # Iterar por canal
     media_manual = calcular_media(canal)
     desviacion_manual = calcular_desviacion(canal, media_manual)
     coef_variacion_manual = calcular_coef_variacion(media_manual, desviacion_manual)
-
+```
 Histograma:
 La línea primera establece el tamaño de la figura del gráfico a 10 pulgadas de ancho por 6 pulgadas de alto. 
-
-
+```
 plt.figure(figsize=(10, 6))
-
+```
 A continuación, se genera un histograma de 60 barras con la señal ECG de 10 segundos, con barras azules, bordes negros y opacidad del 70%, además de superponer una curva KDE para mostrar la distribución continua de las amplitudes.
-
-
+```
 sns.histplot(senal_10s, bins=60, color='blue', edgecolor='black', alpha=0.7, kde=True)
-
+```
 ![image](https://github.com/user-attachments/assets/ad9f24f1-fbf0-4e82-a83a-54ee11552f9a)
 # SNR para los distintos tipos de ruidos
 El SNR (Signal to noise ratio) o sea relación señal ruido es un parámetro que se utiliza para saber que tan contaminada está una señal, esto se hace comparando la amplitud de la señal, con la amplitud del ruido usando la siguiente fórmula: $SNR = 10 \log_{10} \left(\frac{P_{\text{señal}}}{P_{\text{ruido}}}\right)$
