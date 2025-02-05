@@ -104,7 +104,13 @@ coef_variacion = (desviacion / media) * 100  # Coeficiente de variación (%)
 
 # SNR para los distintos tipos de ruidos
 El SNR (Signal to noise ratio) o sea relación señal ruido es un parámetro que se utiliza para saber que tan contaminada está una señal, esto se hace comparando la amplitud de la señal, con la amplitud del ruido usando la siguiente fórmula: $SNR = 10 \log_{10} \left(\frac{P_{\text{señal}}}{P_{\text{ruido}}}\right)$
-
+>[!TIP]
+>Usa este codigo para calcular el SNR
+>```
+>P_signal = np.mean(senal_10s**2)#calculo de potencia
+P_noise_impulso_bajo = np.mean(ruido_impulso_bajo**2)
+SNR_impulso_bajo = 10 * np.log10(P_signal / P_noise_impulso_bajo)#conversion a decibeles
+>```
 Obtener SNR alto significa que la señal es significativamente más alta que el ruido, esto es importante sobre todo en aplicaciones biomédicas, ya que un SNR alto nos proporciona mayor precisión en los diagnósticos y más facilidad para procesar una señal, un SNR se considera alto a partir de 10 dB lo que se interpreta como que la señal es 10 veces más fuerte que el ruido.
 
 ![image](https://github.com/user-attachments/assets/9217c48a-133a-43e2-84c1-d3a99e94dc4a)
@@ -117,6 +123,45 @@ Para las señales con ruido de artefacto el primer SNR fue de 0,43 decibeles, es
 ![image](https://github.com/user-attachments/assets/38a76738-48a8-4810-b3a9-8f880ee5b329)
 En cuanto a las señales contaminadas con ruido tipo impulso, se obtuvo la primera con SNR de 6,86 dB es decir con unas 4,8 veces la potencia de su ruido, y la otra que tuvo el SNR más alto de todos con 34,42 y una potencia de 2766 veces mayor que el ruido. En color rojo se observa la imagen con SNR de 6,86 dB y en azul la señal con SNR de 34,42 dB.
 ![image](https://github.com/user-attachments/assets/8a15dfd6-30c2-411f-8501-c6a24e6792ef)
+### Ruido Artefacto 
+Este fragmento de código genera un artefacto sinusoidal de 20 Hz con una amplitud de 0.48 y lo agrega a la señal ECG original. La función np.sin() crea una onda senoidal a partir de la frecuencia y el tiempo definido, y luego se escala por la amplitud. Después, el artefacto se ajusta en forma de columna con reshape(-1, 1) para que coincida con la dimensión de la señal ECG (senal_10s). Finalmente, se suma el artefacto a la señal, obteniendo senal_artefacto1, que representa la señal ECG con interferencia.
+```
+# ARTEFACTO
+# Parámetros del ruido de artefacto
+frecuencia_artefacto = 20  # Frecuencia del artefacto en Hz
+amplitud_artefacto = 0.48 # Amplitud del artefacto
+#--- PRIMER RUIDO ( SNR MENOR A 10 dB)
+artefacto = amplitud_artefacto * np.sin(2 * np.pi * frecuencia_artefacto * tiempo_10s)
+# Agregar el artefacto a la señal original
+artefacto1 = artefacto.reshape(-1, 1)
+senal_artefacto1 = senal_10s + artefacto1
+```
+## Ruido Gaussiano o Ruido blanco
+Este código introduce ruido gaussiano blanco en una señal ECG para simular condiciones con una relación señal-ruido (SNR) menor a 10 dB. Primero, calcula la potencia de la señal original. Luego, genera una señal de ruido gaussiano con media cero y desviación estándar de uno. Se calcula la potencia de este ruido y se ajusta su amplitud multiplicándolo por un factor (0.1397) para controlar el nivel de interferencia. Finalmente, el ruido modificado se suma a la señal original, obteniendo `senal_noise_white1`, que representa la señal ECG con ruido gaussiano añadido.
+```
+# RUIDO GAUSSIANO (SNR MENOR A 10dB)
+P_signal = np.mean(senal_10s**2)  # Potencia de la señal original
+r_gaussiano1 = np.random.normal(0, 1, muestras_10s) #el 0 representa la media, el 1 la desviación
+P_noise_white = np.mean(r_gaussiano1**2)  # Potencia del ruido
+r_gaussiano1*=0.1397 # ajustar potencia del ruido para un SNR bajo
+senal_noise_white1 = senal_10s + r_gaussiano1  # Señal con ruido
+```
+## Ruido Impulsivo
+El ruido impulsivo se agrega generando picos aleatorios en la señal ECG. Primero, se introducen impulsos con un SNR bajo, lo que genera perturbaciones de alta amplitud entre -3 y 3 mV. Luego, se repite el proceso con un SNR más alto, pero con impulsos de menor amplitud, en el rango de -0.1 a 0.1 mV, simulando interferencias más leves.
+```
+#RUIDO IMPULSO (SNR MENOR A 10 dB)
+ruido_impulso_bajo = np.zeros_like(senal_10s) 
+num_impulsos_bajo = 10
+posiciones_bajo = np.random.randint(0, muestras_10s, num_impulsos_bajo)
+
+for pos in posiciones_bajo:
+    amplitud_impulso_bajo = np.random.uniform(-3, 3, size=(senal_10s.shape[1],))  #Amplitud aleatorea entre -3 y 3mV
+    ruido_impulso_bajo[pos, :] = amplitud_impulso_bajo
+
+senal_con_impulso_bajo = senal_10s + ruido_impulso_bajo #suma del impulso a la original :)
+
+
+```
 ## Bibliografía 
 Cita publicación original:
 T Penzel, GB Moody, RG Mark, AL Goldberger, JH Peter. The Apnea-ECG Database. Computers in Cardiology 2000;27:255-258.
