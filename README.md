@@ -1,2 +1,2 @@
-# An-lisis-estad-stico-de-un-ECG-
-#hola
+# Analisis estadistico de un ECG
+
