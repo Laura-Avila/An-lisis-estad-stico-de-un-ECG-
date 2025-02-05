@@ -72,6 +72,8 @@ for i, canal in enumerate(senal.T):  # Iterar por canal
     desviacion_manual = calcular_desviacion(canal, media_manual)
     coef_variacion_manual = calcular_coef_variacion(media_manual, desviacion_manual)
 ```
+>[!WARNING]
+>Si no iteras la señal, el código no podrá calcular estadísticas correctamente dado que la señal tiene múltiples canales.
 ![image](https://github.com/user-attachments/assets/e4acbcaa-d748-469e-a2ca-aabfbfcc66d2)
 
 Histograma:
