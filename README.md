@@ -13,8 +13,8 @@ Este proyecto implementa el procesamiento y análisis estadístico de señales d
 La señal utilizada fue extraída de Physionet de la base de datos Apnea-ECG Database, esta base de datos consiste en 70 grabaciones de larga duración (entre 7 y 10 horas) para investigar la apnea del sueño a través de señales de ECG. Cada grabación incluye una señal de ECG de 100 muestras por segundo. 
 Se utilizó en a04.hea y el a04.dat, el .hea es un archivo de texto que describe el contenido de .dat, este tiene información como el número de señales, la frecuencia de muestreo, el formato de los datos y la escala de conversión de los valores digitales a unidades fisiológicas.
 >[!WARNING]
->Asegúrate que el archivo ecg1 esté disponible en la ruta correcta.
-> Es preferible que se encuentre en la misma carpeta que el archivo .py
+>Asegúrate que el archivo ecg1 esté disponible en la ruta correcta. Es preferible que se encuentre en la misma carpeta que el archivo .py
+
 Link de Apnea-ECG Database: https://physionet.org/content/apnea-ecg/1.0.0/
 Estos archivos se cargan en una IDE para Python y se utilizó la librería wfdb (Waveform Database), la cual es utilizada para visualizar señales fisiológicas, como los ECG.
 ![image](https://github.com/user-attachments/assets/f04279a9-ab89-42ee-86ec-ad7169d4fb11)
