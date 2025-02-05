@@ -74,6 +74,7 @@ for i, canal in enumerate(senal.T):  # Iterar por canal
 ```
 >[!WARNING]
 >Si no iteras la señal, el código no podrá calcular estadísticas correctamente dado que la señal tiene múltiples canales.
+
 ![image](https://github.com/user-attachments/assets/e4acbcaa-d748-469e-a2ca-aabfbfcc66d2)
 
 Histograma:
