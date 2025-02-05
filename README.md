@@ -93,7 +93,7 @@ sns.histplot(senal_10s, bins=60, color='blue', edgecolor='black', alpha=0.7, kde
 ```
 ![image](https://github.com/user-attachments/assets/ad9f24f1-fbf0-4e82-a83a-54ee11552f9a)
 ## Estadísticos descriptivos (Funciones)
-Este código calcula tres estadísticas clave de la señal ECG por canal usando la libreria Numpy. La media se obtiene para cada canal, proporcionando el valor promedio de la señal. La desviación estándar mide la dispersión de los datos respecto a la media, utilizando un denominador de n-1 para asegurar una estimación insesgada. Finalmente, el coeficiente de variación se calcula como el cociente entre la desviación estándar y la media, expresado como un porcentaje. Este coeficiente proporciona una medida de la variabilidad relativa de la señal en relación con su media, permitiendo comparar la dispersión entre señales de diferentes magnitudes.
+El código calcula tres estadísticas clave de la señal ECG por canal usando la libreria Numpy. La media se obtiene para cada canal, proporcionando el valor promedio de la señal. La desviación estándar mide la dispersión de los datos respecto a la media, utilizando un denominador de n-1 para asegurar una estimación insesgada. Finalmente, el coeficiente de variación se calcula como el cociente entre la desviación estándar y la media, expresado como un porcentaje. Este coeficiente proporciona una medida de la variabilidad relativa de la señal en relación con su media, permitiendo comparar la dispersión entre señales de diferentes magnitudes.
 ```
 # Calcular estadísticas usando numpy
 media = np.mean(senal, axis=0)  # Media por canal
@@ -105,15 +105,12 @@ coef_variacion = (desviacion / media) * 100  # Coeficiente de variación (%)
 # SNR para los distintos tipos de ruidos
 El SNR (Signal to noise ratio) o sea relación señal ruido es un parámetro que se utiliza para saber que tan contaminada está una señal, esto se hace comparando la amplitud de la señal, con la amplitud del ruido usando la siguiente fórmula: $SNR = 10 \log_{10} \left(\frac{P_{\text{señal}}}{P_{\text{ruido}}}\right)$
 
-
 Obtener SNR alto significa que la señal es significativamente más alta que el ruido, esto es importante sobre todo en aplicaciones biomédicas, ya que un SNR alto nos proporciona mayor precisión en los diagnósticos y más facilidad para procesar una señal, un SNR se considera alto a partir de 10 dB lo que se interpreta como que la señal es 10 veces más fuerte que el ruido.
-
 
 ![image](https://github.com/user-attachments/assets/9217c48a-133a-43e2-84c1-d3a99e94dc4a)
 
 Para las señales contaminadas con ruido gaussiano se obtuvieron SNR de 7,89 dB y 31,01 dB, el SNR de 7,89 dB  significa que la señal tiene 6,2 veces la potencia del ruido, por lo que no es aceptable, en cuanto a la otra señal su potencia es 1262 veces mayor a la del ruido, es decir es de muy buena calidad. En amarillo se ve la señal con SNR de 7,89 dB y en rojo la señal con SNR de 31,01 dB
 ![image](https://github.com/user-attachments/assets/5e0e328d-011e-4381-a4ae-fa93b000a8ba)
-
 
 Para las señales con ruido de artefacto el primer SNR fue de 0,43 decibeles, esto quiere decir que la señal y el ruido tienen casi la misma potencia, por lo que esa señal es prácticamente inservible, en cuanto a la otra con un SNR de 13,91 dB, esta señal tiene 24,6 veces la potencia del ruido con el que está contaminada lo que la hace aceptable. En morado se ve la señal con SNR de 0,43 dB y en verde la señal con SNR de 13,91 dB.
 ![image](https://github.com/user-attachments/assets/e12101e0-0956-45d9-89ae-910bc08475a7)
@@ -125,3 +122,7 @@ Cita publicación original:
 T Penzel, GB Moody, RG Mark, AL Goldberger, JH Peter. The Apnea-ECG Database. Computers in Cardiology 2000;27:255-258.
 Cita Physionet:
 Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., ... & Stanley, H. E. (2000). PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220.
+## Colaboradores
+Catalina Martinez 
+Pablo Acevedo
+Laura Avila
