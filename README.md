@@ -108,8 +108,8 @@ El SNR (Signal to noise ratio) o sea relación señal ruido es un parámetro que
 >Usa este codigo para calcular el SNR
 >```
 >P_signal = np.mean(senal_10s**2)#calculo de potencia
-P_noise_impulso_bajo = np.mean(ruido_impulso_bajo**2)
-SNR_impulso_bajo = 10 * np.log10(P_signal / P_noise_impulso_bajo)#conversion a decibeles
+>P_noise_impulso_bajo = np.mean(ruido_impulso_bajo**2)
+>SNR_impulso_bajo = 10 * np.log10(P_signal / P_noise_impulso_bajo)#conversion a decibeles
 >```
 Obtener SNR alto significa que la señal es significativamente más alta que el ruido, esto es importante sobre todo en aplicaciones biomédicas, ya que un SNR alto nos proporciona mayor precisión en los diagnósticos y más facilidad para procesar una señal, un SNR se considera alto a partir de 10 dB lo que se interpreta como que la señal es 10 veces más fuerte que el ruido.
 
