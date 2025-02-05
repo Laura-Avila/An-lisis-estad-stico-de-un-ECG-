@@ -2,7 +2,7 @@
 ## Descripción
 Este proyecto implementa el procesamiento y análisis estadístico de señales de ECG, abarcando la caracterización de parámetros estadísticos, la simulación de ruido en distintas configuraciones y la evaluación de la variabilidad de la señal en función de métricas cuantitativas.
 > [!TIP]
->librerias necesarias:
+>Librerias necesarias:
 >```
 > import wfdb
 >import seaborn as sns
