@@ -67,7 +67,14 @@ sns.histplot(senal_10s, bins=60, color='blue', edgecolor='black', alpha=0.7, kde
 ```
 ![image](https://github.com/user-attachments/assets/ad9f24f1-fbf0-4e82-a83a-54ee11552f9a)
 ## Estadisticos descriptivos (Funciones)
-Este código calcula tres estadísticas clave de la señal ECG por canal. La media se obtiene para cada canal, proporcionando el valor promedio de la señal. La desviación estándar mide la dispersión de los datos respecto a la media, utilizando un denominador de n-1 para asegurar una estimación insesgada. Finalmente, el coeficiente de variación se calcula como el cociente entre la desviación estándar y la media, expresado como un porcentaje. Este coeficiente proporciona una medida de la variabilidad relativa de la señal en relación con su media, permitiendo comparar la dispersión entre señales de diferentes magnitudes.
+Este código calcula tres estadísticas clave de la señal ECG por canal usando la libreria Numpy. La media se obtiene para cada canal, proporcionando el valor promedio de la señal. La desviación estándar mide la dispersión de los datos respecto a la media, utilizando un denominador de n-1 para asegurar una estimación insesgada. Finalmente, el coeficiente de variación se calcula como el cociente entre la desviación estándar y la media, expresado como un porcentaje. Este coeficiente proporciona una medida de la variabilidad relativa de la señal en relación con su media, permitiendo comparar la dispersión entre señales de diferentes magnitudes.
+```
+# Calcular estadísticas usando numpy
+media = np.mean(senal, axis=0)  # Media por canal
+desviacion = np.std(senal, axis=0, ddof=1)  # Desviación estándar por canal
+coef_variacion = (desviacion / media) * 100  # Coeficiente de variación (%)
+```
+![image](https://github.com/user-attachments/assets/7c0142ec-d63f-4acd-8ffc-bdc5edcd8128)
 
 # SNR para los distintos tipos de ruidos
 El SNR (Signal to noise ratio) o sea relación señal ruido es un parámetro que se utiliza para saber que tan contaminada está una señal, esto se hace comparando la amplitud de la señal, con la amplitud del ruido usando la siguiente fórmula: $SNR = 10 \log_{10} \left(\frac{P_{\text{señal}}}{P_{\text{ruido}}}\right)$
