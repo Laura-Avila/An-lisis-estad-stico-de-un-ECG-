@@ -113,15 +113,6 @@ Para las señales contaminadas con ruido gaussiano se obtuvieron SNR de 7,89 dB 
 Para las señales con ruido de artefacto el primer SNR fue de 0,43 decibeles, esto quiere decir que la señal y el ruido tienen casi la misma potencia, por lo que esa señal es prácticamente inservible, en cuanto a la otra con un SNR de 13,91 dB, esta señal tiene 24,6 veces la potencia del ruido con el que está contaminada lo que la hace aceptable. En morado se ve la señal con SNR de 0,43 dB y en verde la señal con SNR de 13,91 dB.
 ![image](https://github.com/user-attachments/assets/e12101e0-0956-45d9-89ae-910bc08475a7)
 ![image](https://github.com/user-attachments/assets/38a76738-48a8-4810-b3a9-8f880ee5b329)
-
-## BIBLIOGRAFÍA
-Cita publicación original:
-T Penzel, GB Moody, RG Mark, AL Goldberger, JH Peter. The Apnea-ECG Database. Computers in Cardiology 2000;27:255-258.
-
-Cita Physionet:
-Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., ... & Stanley, H. E. (2000). PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220.
-
-
 En cuanto a las señales contaminadas con ruido tipo impulso, se obtuvo la primera con SNR de 6,86 dB es decir con unas 4,8 veces la potencia de su ruido, y la otra que tuvo el SNR más alto de todos con 34,42 y una potencia de 2766 veces mayor que el ruido. En color rojo se observa la imagen con SNR de 6,86 dB y en azul la señal con SNR de 34,42 dB.
 ![image](https://github.com/user-attachments/assets/8a15dfd6-30c2-411f-8501-c6a24e6792ef)
 ## Bibliografía 
