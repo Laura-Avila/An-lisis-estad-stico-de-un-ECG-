@@ -124,4 +124,8 @@ Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., .
 
 En cuanto a las señales contaminadas con ruido tipo impulso, se obtuvo la primera con SNR de 6,86 dB es decir con unas 4,8 veces la potencia de su ruido, y la otra que tuvo el SNR más alto de todos con 34,42 y una potencia de 2766 veces mayor que el ruido. En color rojo se observa la imagen con SNR de 6,86 dB y en azul la señal con SNR de 34,42 dB.
 ![image](https://github.com/user-attachments/assets/8a15dfd6-30c2-411f-8501-c6a24e6792ef)
-
+## Bibliografía 
+Cita publicación original:
+T Penzel, GB Moody, RG Mark, AL Goldberger, JH Peter. The Apnea-ECG Database. Computers in Cardiology 2000;27:255-258.
+Cita Physionet:
+Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., ... & Stanley, H. E. (2000). PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220.
